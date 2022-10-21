@@ -35,32 +35,30 @@ cover:
 >Points: 200
 
 
-Me (@Rpi8) and (@inFerno) solved this challenge together.
 
-
-#### Let's get started, were given a (“pcapng”)  so let's take a overall look first and get in deep later.
+#### Let's get started, given a (“pcapng”) so let's take a overall look first and get in deep later.
 
 ![pcap-view](https://i.imgur.com/Tr2oQnp.png)
 
 messy requests :D | but the name of the challenge is **Filterition**
 
-so we have to filter the requests to find what we're looking for 
+so i have to filter the requests 
 
-We started filtering the requests, we started with **dns** requests but nothing was interesting.
-we take a look at **tcp** requests and we couldn't see the requests well so we thought that there is nothing useful :D
+i started filtering the requests, started with **dns** requests but nothing was interesting.
+i took a look at **tcp** requests and i couldn't see the requests well so i thought that there is nothing useful :D
 
-now time to check the ftp requests using this wireshark filter ( **ftp-data** ) and there we got a very interested thing.
+now time to check the ftp requests using this wireshark filter ( **ftp-data** ) and there i got a very interested thing.
 
 ![ftp-data](https://i.imgur.com/mEauVD5.png)
 it is a zip file cool let's dig in..
-we exported the file.
-now we have a zip file looks interesting but it is protected with password :( | ofc we will brute force it .
+i exported the file.
+now i have a zip file looks interesting but it is protected with password :( | ofc i will brute force it .
 i used zip2john to crack the password |
 
 ![zip2john](https://i.imgur.com/GKIVady.png)
 
 the password is : **labeba**
-BoOoOM we done :*
+BoOoOM am done :*
 
 sry but nope i got file named secret_data.txt contains some codes
 
@@ -72,7 +70,7 @@ actually i have no clue what are they :(
 
 i copied one random code and pasted it to google and i figured that those codes are RGB Codes and i noticed that also from the Name of the pcap file ( **colurfull.pcapng** )
 
-now we need a way to convert those RGB Codes to image to be able to see the flag, it was an easy thing for me cause i solved chall like these before 
+now i need a way to convert those RGB Codes to image to be able to see the flag, it was an easy thing for me cause i solved chall like these before 
 
 so i made a little python script to take all RGB Colors and convert it to image like magic :D
 

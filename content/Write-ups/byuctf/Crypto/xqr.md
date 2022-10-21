@@ -30,10 +30,6 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-
-#  BUYCTF - XQR
-###### =================
-
 #### Me (@1nk0x01) and (0x3ashry) solved this challenge together
 
 

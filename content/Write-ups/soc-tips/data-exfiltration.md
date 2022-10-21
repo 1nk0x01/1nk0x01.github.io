@@ -32,8 +32,7 @@ cover:
 ---
 
 
-Hey folks, I am Mohamed Adel and I am a SOC Analyst 
-Today we will talk about how to Spot Data Exfiltration
+Hey folks, Today we will talk about how to Spot Data Exfiltration
 
 Let's Dive in!!
 
