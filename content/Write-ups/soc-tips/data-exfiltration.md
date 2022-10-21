@@ -68,13 +68,51 @@ Attackers can use the following PowerShell code to send an email with an attache
 
 ### Exfiltrate via DNS
 
+Since DNS is not a transport protocol, many organizations don't regularly monitor the DNS protocol! The DNS protocol is allowed in almost all firewalls in any organization network. For those reasons, threat actors prefer using the DNS protocol to hide their communications.
+
+The DNS protocol has limitations that need to be taken into consideration, which are as follows,
+
+- The maximum length of the Fully Qualified FQDN domain name (including .separators) is 255 characters.
+- The subdomain name (label) length must not exceed 63 characters (not including .com, .net, etc).
+
+Based on these limitations, we can use a limited number of characters to transfer data over the domain name. If we have a large file, 10 MB for example, it may need more than 50000 DNS requests to transfer the file completely. Therefore, it will be noisy traffic and easy to notice and detect.
+
+- The attacker registers the domain name ZG5ZC2VJDXJPDHKK.COM, and sets up name server NS1.ZG5ZC2VJDXJPDHKK.COM
+- The infected client encodes stolen information, in this case, the text `Pa$$w0rd`, into UGEKJHCWCMQK
+- The client makes the DNS query for the domain with the encoded password as a subdomain: UGEKJHCWCMQK.ZG5ZC2VJDXJPDHKK.COM
+- A recursive name server finds the authoritative name server NS1.ZG5ZC2VJDXJPDHKK.COM and sends the query there.
+- The attacker recognizes the subdomain value as the encoded password. The attacker decodes the information UGEKJHCWCMQK back to recover `Pa$$w0rd`
+
+Diagram:
+![](https://infoblox.b-cdn.net/wp-content/uploads/dsrc-dns-issues-threats-how-does-data-exfiltration-work.jpg)
+
 > Tool used in demo: [dnsteal](https://github.com/m57/dnsteal)
 
 ![enter image description here](https://camo.githubusercontent.com/49b0419254d83b2abb9a4a9871eb55422a1ce10a034c132467144f344a36ab77/687474703a2f2f692e696d6775722e636f6d2f6e4a736f414d762e706e67)
 
-![](https://blog.apnic.net/wp-content/uploads/2022/03/Figure-12-victim-system-sends-targetdata.txt-over-DNS-1024x227.jpg)
+![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/a7ac15da0501d577dadcf53b4143ff98.png)
 
-![](https://blog.apnic.net/wp-content/uploads/2022/03/Figure-13-Attacker-name-server-receive-target-data-using-DNS-is-a-communication-protocol--1024x514.jpg)
+Then the attacker receives the encoded and decode it to get the data.
+
+
+### Exfiltrate via DNS Tunneling
+
+DNS tunneling is a difficult-to-detect attack that routes DNS requests to the attacker's server, providing attackers a covert command and control channel, and data exfiltration path.
+
+The Client has a Firewall, IDS and procies that are inspecting and blocking the susp traffic so how can they move the data?
+
+Yes, they will abuse the DNS Protocol to create a covert channel and exfiltrate the sensitive data out.
+
+
+So How this works:
+
+- The Attacker established a domain with local DNS Server.
+- Attacker Will try to query his DNS server from the client machine
+- so what happens is when the client tries and goes to this website it will passed through local DNS and this DNS Server probably doesn't know the IP Address of the attacker's website so it will query this website and for ask for the IP Address of it and the website will respond with the IP Address.
+- since the queries are just packets so the attacker can manipulate it
+- the attacker puts the sensitive data into the query and send it splitted so he won't get caught.
+- and finally attacker receive it and reconstruct it and get his sensitive data 
+
 
 
 ### Exfiltrate via IPv6
