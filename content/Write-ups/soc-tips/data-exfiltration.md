@@ -95,7 +95,7 @@ Then the attacker receives the encoded data and decode it to get the sensitive d
 
 DNS tunneling is a difficult-to-detect attack that routes DNS requests to the attacker's server, providing attackers a covert command and control channel, and data exfiltration path.
 
-The Client has a Firewall, IDS and procies that are inspecting and blocking the susp traffic so how can they move the data?
+The Client has a Firewall, IDS and proxies that are inspecting and blocking the susp traffic so how can they move the data?
 
 Yes, they will abuse the DNS Protocol to create a covert channel and exfiltrate the sensitive data out.
 
