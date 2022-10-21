@@ -24,7 +24,7 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "https://miro.medium.com/max/640/1*Vcbfovigm3SEdluqzHkBog.png" # image path/url
+    image: "" # image path/url
     alt: "Data Exfiltration" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
