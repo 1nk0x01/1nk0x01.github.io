@@ -104,7 +104,7 @@ So How this works:
 
 - The Attacker established a domain with local DNS Server.
 - Attacker Will try to query his DNS server from the client machine
-- so what happens is when the client tries and goes to this website it will passed through local DNS and this DNS Server probably doesn't know the IP Address of the attacker's website so it will query this website and for ask for the IP Address of it and the website will respond with the IP Address.
+- so what happens is when the client tries and goes to this website it will passed through local DNS and this DNS Server probably doesn't know the IP Address of the attacker's website so it will query this website and ask for the IP Address of it and the website will respond with the IP Address.
 - since the queries are just packets so the attacker can manipulate it
 - the attacker puts the sensitive data into the query and send it splitted so he won't get caught.
 - and finally attacker receive it and reconstruct it and get his sensitive data 
