@@ -85,13 +85,10 @@ Based on these limitations, we can use a limited number of characters to transfe
 Diagram:
 ![](https://infoblox.b-cdn.net/wp-content/uploads/dsrc-dns-issues-threats-how-does-data-exfiltration-work.jpg)
 
-> Tool used in demo: [dnsteal](https://github.com/m57/dnsteal)
-
-![enter image description here](https://camo.githubusercontent.com/49b0419254d83b2abb9a4a9871eb55422a1ce10a034c132467144f344a36ab77/687474703a2f2f692e696d6775722e636f6d2f6e4a736f414d762e706e67)
 
 ![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/a7ac15da0501d577dadcf53b4143ff98.png)
 
-Then the attacker receives the encoded and decode it to get the data.
+Then the attacker receives the encoded data and decode it to get the sensitive data.
 
 
 ### Exfiltrate via DNS Tunneling
