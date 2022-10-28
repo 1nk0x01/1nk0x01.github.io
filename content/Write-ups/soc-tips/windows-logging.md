@@ -261,7 +261,7 @@ This an example for windows defender when i ran a malicious file on my pc and i 
 
 ## PowerShell Logs: Windows Event ID 4104
 
-So First we need to turn audit policy on with these steps:
+So First we need to turn audit policy on by follow those steps:
 
 1- go to edit group policy >  Administrative Templates > Windows Components > Windows PowerShell
 
