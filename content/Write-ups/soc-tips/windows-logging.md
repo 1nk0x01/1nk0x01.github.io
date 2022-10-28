@@ -72,7 +72,7 @@ so after open event viewer we will see the following:
 
 Event Viewer has an intuitive user interface. The main screen is divided into three sections:
 
--  The pane on the left provides a hierarchical tree listing of the event log providers and they are called ( channels ).
+-  The pane on the left provides a hierarchical tree listing of the event log providers and they called ( channels ).
 -  The pane in the middle will either display a general overview and summary or the events specific to a selected channel.
 -  The pane on the right is the actions pane.
 
