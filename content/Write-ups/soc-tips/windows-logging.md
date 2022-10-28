@@ -230,7 +230,7 @@ Actually this Event ID is not listed in Microsoft Events ID but Service Creation
 ![](https://i.imgur.com/K2uUMQZ.png)
 
 
-## USB Plug & Play Events
+## USB Plug & Play: Event ID 6416
 
 In order to track if there is any devices that plugged in into your PC follow those steps:
 
@@ -242,8 +242,7 @@ In order to track if there is any devices that plugged in into your PC follow th
 
  read the explain first to know what is does and then enable success and failure
 
- now back to event viewr and use this Event ID
-    Windows Event ID : 6416
+ now back to event viewr and use the Event ID
 
 ![](https://i.imgur.com/HHhmFKX.png)
 
