@@ -149,7 +149,6 @@ as an analyst i want to see the logon attempts that will happen on my PC either 
 
 First thing i have to know what Information Gets Written, to know if it configured or not, these are the sources the logs getting written from
 
-**Note: if you want to track specific event like who access files & who create a new user you have to configure it first from Local Security Policy i recommend you to practice it with yourself explore Local Security Policy and see what you can record events for and don't forget google is your friend**
 
 ![enter image description here](https://i.imgur.com/X4nNSUC.png)
 
