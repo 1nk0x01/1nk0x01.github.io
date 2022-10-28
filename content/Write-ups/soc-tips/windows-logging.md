@@ -53,7 +53,7 @@ so let's get back to answer the question:
 ## **Event Viewer**
 
 
-The Windows Event Logs are not text files that can be viewed using a text editor. However, the data are XML-formatted `.evtx` files
+The Windows Event Logs are not text files that can be viewed using a text editor. However, the data are XML-formatted `.evtx` files and they stored in `C:\Windows\System32\winevt\Logs`
 
 	- Note: File must be interpreted with tool
 	- Cannot read directly like linux log text files
@@ -98,9 +98,6 @@ The Channels pane is where you choose the event log to view. By default, there a
 
 There is also a section for Applications and Services Logs, including channels for Hardware Events, Internet Explorer and Windows PowerShell events, windows defender events..etc, you better take a look by yourself.
 
-You can see PowerShell logging from
-
-`Applications and Services Logs > Microsoft > Windows > PowerShell > Operational`
 
 actually these channels are files they are `.evtx` files stored in your system you can try to read them by right-clicking on any channel then choose properties you will see all the details about the channel
 
@@ -151,6 +148,8 @@ as an analyst i want to see the logon attempts that will happen on my PC either 
 
 First thing i have to know what Information Gets Written, to know if it configured or not, these are the sources the logs getting written from
 
+**Note: if you want to track specific event like who access files & who create a new user you have to configure it first from Local Security Policy i recommend you to practice it with yourself explore Local Security Policy and see what you can record events for and don't forget google is your friend**
+
 ![enter image description here](https://i.imgur.com/X4nNSUC.png)
 
 as I said I want to know the logon attempts so from prev photo i should go to Local Security Policy and search for logon service to configure it to audit the logon attempts:
@@ -177,10 +176,15 @@ now i got a lot of logs
 
 **Note: success and failure each of them has a unique EventID that you can use it to get all the events related to them**
 
-1. Successful Login Event ID = 4624
-2. Failure Login Event ID = 4625
 
-you can read more about Event IDS [Microsoft](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor)
+**this a list of Microsoft Event IDS [Microsoft](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor)**
+
+
+| Event ID  | Potential Criticality  | Event Summary  | 
+|---|---|---|
+|  4624 | Low | An account failed to log on. |  
+|  4625 | Low | An account was successfully logged on. | 
+
 
 now i can use 4625 to see the failure login attempts.
 
@@ -205,12 +209,78 @@ what is the logon type then: **the type of logon which was performed. The table 
 
 **I Will Leave to You the Last pane discover it by yourself and now let's move to something else**
 
+## New Scheduled Task Event ID: 4698 
+
+![](https://i.imgur.com/m1FwdUM.png)
+
+
+| Event ID  | Potential Criticality  | Event Summary  | 
+|---|---|---|
+|  4698 | Low | A scheduled task was created. |  
+|  4699 | Low | A scheduled task was deleted. | 
+|  4700 | Low | A scheduled task was enabled. |  
+|  4701 | Low | A scheduled task was disabled.|
+|  4702 | Low | A scheduled task was updated. |
+
+
+## Service Creation: Windows Event ID 7045
+
+Actually this Event ID is not listed in Microsoft Events ID but Service Creation is another way the attackers use to persist or use the computer resources for mining cryptocurrency
+
+![](https://i.imgur.com/K2uUMQZ.png)
+
+
+## USB Plug & Play Events
+
+In order to track if there is any devices that plugged in into your PC follow those steps:
+
+1- Enable the USB Logging option by accessing the Event Viewer:
+
+ - By going to Local Security Policy
+
+ ![](https://i.imgur.com/dBAcBES.png)
+
+ read the explain first to know what is does and then enable success and failure
+
+ now back to event viewr and use this Event ID
+    Windows Event ID : 6416
+
+![](https://i.imgur.com/HHhmFKX.png)
+
+![](https://i.imgur.com/2V1cfBu.png)
+
+
+
 ## Windows Defender Events
 This an example for windows defender when i ran a malicious file on my pc and i was enable real-time protection windows defender made an alert and log this event you can see windows defender logs from
 
 Applications and Services Logs > Microsoft > Windows > Windows Defender > Operational
 
+log event IDs 1006 / 1116
+
 ![enter image description here](https://i.imgur.com/SSqVYkQ.png)
+
+## PowerShell Logs: Windows Event ID 4104
+
+So First we need to turn audit policy on with these steps:
+
+1- go to edit group policy >  Administrative Templates > Windows Components > Windows PowerShell
+
+2- we will pick Turn on PowerShell Script Block Logging 
+
+then turn it on like this
+
+![](https://i.imgur.com/zkvCdI9.png)
+
+after this back to event viewer and navigate to `Applications and Services Logs > Microsoft > Windows > PowerShell > Operational` to see the logs, once you opened the powershell and filter the logs by its event id yo'll notice that there is a log has fade in it tells you powershell opened
+
+![](https://i.imgur.com/pkWhCjY.png)
+
+**then write any command in my case i will use whoami** 
+
+
+![](https://i.imgur.com/Ybvgtld.png)
+
 
 ## BONUS
 if you arrived here, i want to tell you good job you made a big progress :D
@@ -225,7 +295,7 @@ then:
 
     $logs.events | where-object {$_.id -eq EVENT_ID} | fl *
 
- -- Don't Forget to Replace EVENT_ID with the event id that you want to data about.
+ -- Don't Forget to Replace EVENT_ID with the event id that you want to get data about.
 
 # Channels of Interest for the analyst
 
@@ -249,8 +319,9 @@ Indicators of attack (IOA) uses security operations to identify risks and map th
  
  - SANS
  - loggly
+ - Microsoft
 
 
 -- Thanks For Reading..
 
--- Wait For Part 2 More Details
+-- Wait For Part 2 More Details Kerberos Authentication
