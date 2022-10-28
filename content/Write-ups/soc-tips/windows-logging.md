@@ -225,7 +225,7 @@ what is the logon type then: **the type of logon which was performed. The table 
 
 ## Service Creation: Windows Event ID 7045
 
-Actually this Event ID is not listed in Microsoft Events ID but Service Creation is another way the attackers use to persist or use the computer resources for mining cryptocurrency
+Actually this Event ID is not listed in Microsoft Events ID but Service Creation is another way the attackers use for persistencec or use the computer resources for mining cryptocurrency
 
 ![](https://i.imgur.com/K2uUMQZ.png)
 
