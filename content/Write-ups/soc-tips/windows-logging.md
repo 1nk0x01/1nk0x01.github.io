@@ -132,7 +132,6 @@ In this case, **Security Channel**.
 
 select security channel.
 
-Windows logs are actually XML, but can be rendered differently.
 
 ![](https://i.imgur.com/mqzOOvW.png)
 
