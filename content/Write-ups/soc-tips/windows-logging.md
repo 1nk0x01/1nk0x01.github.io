@@ -251,12 +251,11 @@ In order to track if there is any devices that plugged in into your PC follow th
 
 
 
-## Windows Defender Events
+## Windows Defender: Event IDs 1006 / 1116
 This an example for windows defender when i ran a malicious file on my pc and i was enable real-time protection windows defender made an alert and log this event you can see windows defender logs from
 
-Applications and Services Logs > Microsoft > Windows > Windows Defender > Operational
+`Applications and Services Logs > Microsoft > Windows > Windows Defender > Operational`
 
-log event IDs 1006 / 1116
 
 ![enter image description here](https://i.imgur.com/SSqVYkQ.png)
 
