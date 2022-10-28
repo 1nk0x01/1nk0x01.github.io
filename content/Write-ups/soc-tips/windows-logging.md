@@ -130,6 +130,8 @@ Each event has a type **Level**:
 Focus your attention on the middle pane. Remember from earlier that this pane will display the events specific to a selected provider
 In this case, **Security Channel**.
 
+select security channel.
+
 Windows logs are actually XML, but can be rendered differently.
 
 ![](https://i.imgur.com/mqzOOvW.png)
