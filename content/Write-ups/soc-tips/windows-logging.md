@@ -231,6 +231,14 @@ then:
 
 ![enter image description here](https://i.imgur.com/B8itb5U.png)
 
+# Mapping ATT&CK to Windows Event IDs
+
+Indicators of attack (IOA) uses security operations to identify risks and map them to the most appropriate attack. In order to address different security scenarios with your SIEM, the link below maps Windows Event ID by tactic and technique.
+
+©️ Author/Credits: [@mdecrevoisier](https://twitter.com/mdecrevoisier) 
+
+[EVTX-to-MITRE-Attack](https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack)
+
 ## Summary
 
 ![enter image description here](https://i.imgur.com/un3BuS6.png)
