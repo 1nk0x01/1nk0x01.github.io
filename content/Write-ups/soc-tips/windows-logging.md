@@ -182,8 +182,8 @@ now i got a lot of logs
 
 | Event ID  | Potential Criticality  | Event Summary  | 
 |---|---|---|
-|  4624 | Low | An account failed to log on. |  
-|  4625 | Low | An account was successfully logged on. | 
+|  4624 | Low | An account was successfully logged on. |  
+|  4625 | Low | An account failed to log on. | 
 
 
 now i can use 4625 to see the failure login attempts.
