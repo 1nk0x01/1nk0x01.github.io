@@ -178,7 +178,7 @@ but what if you know that these processes created it
 ![enter image description here](https://i.imgur.com/8RabcTG.png)
 
 - now you see the process tree **calc.exe | PID: 2092** and this calc.exe start **cmd.exe** of course this is not looking good?
-- now we identified that this a persistence technique also now we know where is the file in on the drive.
+- now we identified that this a persistence technique also now we know where is the file on the drive.
 
 ## Monitoring Data Sources Table
 
