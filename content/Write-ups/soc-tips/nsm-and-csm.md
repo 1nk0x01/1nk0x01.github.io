@@ -144,7 +144,7 @@ Also you can read the Definition of [NIST](https://csrc.nist.gov/glossary/term/i
 
 ![LogsToSIEM](https://i.imgur.com/cI300o2.png)
 
-## **How Does CMS Work?**
+## **How Does CSM Work?**
 
 Continuous monitoring solutions work by providing real-time information about an organization's [security posture](https://www.upguard.com/blog/security-posture). According to the National Institute of Standards and Technology's white paper [NIST SP 800-137](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-137.pdf), information security continuous monitoring (ISCM) works by
 
