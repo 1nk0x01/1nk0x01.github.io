@@ -10,7 +10,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: true
-description: "How Can We Monitor."
+description: "Covered NSM and CSM 2 types of monitoring."
 canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
